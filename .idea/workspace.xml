@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0455aaf5-864b-4234-9cb9-3101fe9834c1" name="Default Changelist" comment="" />
+    <list default="true" id="0455aaf5-864b-4234-9cb9-3101fe9834c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/operations.php" beforeDir="false" afterPath="$PROJECT_DIR$/operations.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,13 +24,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/operations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state>
+              <caret column="5" selection-start-column="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -41,12 +46,13 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="631" />
     <option name="y" value="53" />
     <option name="width" value="1750" />
     <option name="height" value="798" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -94,15 +100,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543417280535</updated>
-      <workItem from="1543417281972" duration="2408000" />
+      <workItem from="1543417281972" duration="2497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2408000" />
+    <option name="totallyTimeSpent" value="2497000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="505" y="43" width="1400" height="638" extended-state="1" />
+    <frame x="505" y="43" width="1400" height="638" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -139,8 +145,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/operations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
         </state>
       </provider>
     </entry>
