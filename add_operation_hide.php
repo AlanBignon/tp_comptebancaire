@@ -21,5 +21,5 @@
     //creation de la nouvelle ligne
     $bdd ->exec("INSERT  INTO transaction (libelle, montant)VALUES ('$libelle', '$montant') ") ;
 
-    header('location: http://localhost/git_alan/tp_comptebancaire/operations.php')
+    header('location: http://localhost/tp_comptebancaire/operations.php')
     ?>
