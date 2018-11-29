@@ -17,8 +17,6 @@
     <tr align="center">
       <p>montant :<br />  <input type="number" name="montant" /></p>
     </tr>
-    
- 
     <tr align="center">
       <p><input type="submit" value="Enregister mon opération"></p>
     </tr>

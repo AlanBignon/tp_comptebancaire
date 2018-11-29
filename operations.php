@@ -2,13 +2,14 @@
     
     $bdd = new PDO('mysql:host=localhost;dbname=compte_bancaire;charset=utf8', 'root', '');
      
-    // Récupération des données
-    $requete = $bdd->query('SELECT DISTINCT id_transaction, libelle, montant, id_compte FROM transaction;');
-    $lignes = $requete->fetchAll();
-    var_dump($lignes);
-
-    $requete->closeCursor();
-
+    //$stm = $bdd->query('SELECT * FROM transaction');
+//Permet de parcourir les lignes une par une
+    //while ($user = $stm->fetch()) { 
+        //echo ($user['id_transaction']);
+        //echo ($user['libelle']);
+        //echo ($user['montant']);
+       // echo ($user['id_compte']);
+    //}
 
 ?><!DOCTYPE html>
 <html lang="fr">
@@ -30,15 +31,19 @@
                 </tr>
             </thead>
             <tbody>
-                <?php // Boucle sur les enregistrements ?>
-                <?php foreach($lignes as $ligne) : ?>
-                    <tr>
-                        <?php // Boucle sur les colonnes ?>
-                        <?php foreach($ligne as $valeur) : ?>
-                            <td><?php echo $valeur; ?></td>
-                        <?php endforeach ?>
-                    </tr>
-                <?php endforeach ?>
+                
+                        <?php $stm = $bdd->query('SELECT * FROM transaction');
+                        //Permet de parcourir les lignes une par une
+                            while ($user = $stm->fetch()) { ?>
+                                <tr>
+                                    <td><?php echo ($user['id_transaction']); ?></td>
+                                    <td><?php echo ($user['libelle']);?></td>
+                                    <td><?php echo ($user['montant']);?></td>
+                                    <td><?php echo ($user['id_compte']);?></td>
+                                </tr>
+                            <?php } ?>
+                                
+            
             </tbody>
         </table>
         <main>
