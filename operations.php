@@ -1,15 +1,6 @@
 <?php
     
     $bdd = new PDO('mysql:host=localhost;dbname=compte_bancaire;charset=utf8', 'root', '');
-     
-    //$stm = $bdd->query('SELECT * FROM transaction');
-//Permet de parcourir les lignes une par une
-    //while ($user = $stm->fetch()) { 
-        //echo ($user['id_transaction']);
-        //echo ($user['libelle']);
-        //echo ($user['montant']);
-       // echo ($user['id_compte']);
-    //}
 
 ?><!DOCTYPE html>
 <html lang="fr">
