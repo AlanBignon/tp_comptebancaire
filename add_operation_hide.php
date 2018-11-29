@@ -17,11 +17,11 @@
     //création de la requête SQL:
 
     //recuperation du nombre de transaction deja présente
-    $SELECT_COUNT = "SELECT COUNT(*) FROM transaction"; 
-    $result = $bdd->query($SELECT_COUNT);
-    $count = $result->fetch();
+    //$SELECT_COUNT = "SELECT COUNT(*) FROM transaction";
+    //$result = $bdd->query($SELECT_COUNT);
+    //$count = $result->fetch();
     //creation de la nouvelle ligne
-    $bdd ->exec("INSERT  INTO transaction (id_transaction, libelle, montant)VALUES ('$count[0]', '$libelle', '$montant') ") ;
+    $bdd ->exec("INSERT  INTO transaction (libelle, montant)VALUES ('$libelle', '$montant') ") ;
     
 
     header('location: http://localhost/tp_phpobjet/operations.php')
