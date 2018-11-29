@@ -5,14 +5,12 @@
     $bdd = new PDO('mysql:host=localhost;dbname=compte_bancaire;charset=utf8', 'root', '');
 
     //récupération des valeurs des champs:
+
     //label:
-    if($_POST["libelle"] !== NULL) {
-        $libelle     = $_POST["libelle"] ;
-    }
+    $libelle     = $_POST["libelle"] ;
     //montant:
-    if($_POST["montant"] !== NULL) {
-        $montant     = $_POST["montant"] ;
-    }
+    $montant     = $_POST["montant"] ;
+
 
     //création de la requête SQL:
 
