@@ -11,10 +11,10 @@
 		<form name="insertion" action="add_operation_hide.php" method="POST">
 
     <tr align="center">
-      <p>label :<br />  <input type="text" name="libelle" /></p>
+      <p>label :<br />  <input type="text" required name="libelle" /></p>
     </tr>
     <tr align="center">
-      <p>montant :<br />  <input type="number" name="montant" /></p>
+      <p>montant :<br />  <input type="number" required name="montant" /></p>
     </tr>
     <tr align="center">
       <p><input type="submit" value="Enregister mon opération"></p>
