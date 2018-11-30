@@ -9,8 +9,10 @@ session_start();
     //récupération des valeurs des champs:
 
 
-    //compte :
-    $compte = $_SESSION['id'];
+    //compte envoyeur:
+    $id_compte_envoyeur = $_SESSION['id'];
+    //compte receveur :
+    $id_compte_receveur = $_POST["id_compte_receveur"] ;
     //label:
     $libelle = $_POST["libelle"] ;
     //montant:
@@ -20,11 +22,31 @@ session_start();
     $result = $bdd->query($SELECT_COUNT);
     $nombreTransaction = $result->fetch();
     $nombreTransaction[0] = $nombreTransaction[0] +1;
-    $transaction[] = new Transaction("$nombreTransaction[0]","$compte");
-    var_dump($transaction);
+    $transaction[] = new Transaction("$nombreTransaction[0]","$id_compte_envoyeur");
+
     //création de la requête SQL:
 
-    $bdd ->exec("INSERT  INTO transaction (libelle, montant, id_compte)VALUES ('$libelle', '$montant', '$compte') ") ;
+    $bdd ->exec("INSERT  INTO transaction (libelle, montant, id_compte, id_compte_receveur)VALUES ('$libelle', '$montant', '$id_compte_envoyeur', '$id_compte_receveur') ") ;
 
-        header('location: http://localhost/tp_comptebancaire/operations.php')
-    ?>
+
+    $reponse = $bdd->query("SELECT * FROM `comptes` WHERE id_compte = '$id_compte_envoyeur' ");
+    var_dump($reponse);
+    // On affiche chaque entrée une à une
+    while ($donnees = $reponse->fetch()) {
+
+        $solde_new = $donnees['solde_compte'] - $montant;
+        $bdd ->exec( "UPDATE comptes SET solde_compte = $solde_new WHERE id_compte = '$id_compte_envoyeur' ");
+        $reponse->closeCursor();
+    }
+
+
+    $reponse = $bdd->query("SELECT * FROM `comptes` WHERE id_compte = '$id_compte_receveur' ");
+    var_dump($reponse);
+    // On affiche chaque entrée une à une
+    while ($donnees = $reponse->fetch()) {
+        $solde_new = $donnees['solde_compte'] + $montant;
+        $bdd ->exec( "UPDATE comptes SET solde_compte = $solde_new WHERE id_compte = '$id_compte_receveur' ");
+        $reponse->closeCursor();
+    }
+
+    header('location: http://localhost/tp_comptebancaire/operations.php');

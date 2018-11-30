@@ -25,6 +25,9 @@ if ($_SESSION['log'] == false) {
       <p>montant :<br />  <input type="number" required name="montant" /></p>
     </tr>
     <tr align="center">
+      <p>vers compte n°:<br /> <input type="number" name="id_compte_receveur" /></p>
+    </tr>
+    <tr align="center">
       <p><input type="submit" value="Enregister mon opération"></p>
     </tr>
 

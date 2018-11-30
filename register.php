@@ -17,6 +17,11 @@ if (isset($_POST["password"])) {
     } else {
         $password = $_POST['password'];
         echo "Compte créer, veuillez vous connectez";
+        $SELECT_COUNT = "SELECT MAX(id_compte) FROM comptes";
+        $result = $bdd->query($SELECT_COUNT);
+        $nombreTransaction = $result->fetch();
+        $nombreTransaction[0] ++;
+        echo "Votre id est : " . $nombreTransaction[0];
     }
 }
 if ($go ==1) {
