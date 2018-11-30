@@ -60,12 +60,20 @@ $id = $_SESSION['id'];
             <?php } ?>
             </tbody>
         </table>
-
-
 <div>Solde : </div>
 <?php $stm = $bdd->query("SELECT solde_compte FROM comptes WHERE id_compte = '$id'");?>
 <?php while ($solde = $stm->fetch()) { ?>
 <?php echo $solde['solde_compte']; ?>
+<?php } ?>
+<div>id compte : </div>
+<?php $stm = $bdd->query("SELECT id_compte FROM comptes WHERE id_compte = '$id'");?>
+<?php while ($compte = $stm->fetch()) { ?>
+    <?php echo $compte['id_compte']; ?>
+<?php } ?>
+<div>nom client : </div>
+<?php $stm = $bdd->query("SELECT nom_client FROM comptes WHERE id_compte = '$id'");?>
+<?php while ($nom_compte = $stm->fetch()) { ?>
+    <?php echo $nom_compte['nom_client']; ?>
 <?php } ?>
         <main>
         </main>

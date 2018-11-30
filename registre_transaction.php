@@ -11,26 +11,27 @@ if ($_SESSION['log'] == false) {
 ?><!DOCTYPE html>
 <html lang="fr">
 	<head>
+        <link rel="stylesheet" type="text/css" href="style.css">
 		<meta charset="utf-8"/>
 		<title>Enregistrement</title>
 	</head>
 	<body>
-		<h2>Enregistrement d'une opération</h2>
+		<h1>Enregistrement d'une opération</h1>
 
 		<form name="insertion" action="add_operation_hide.php" method="POST">
-    <tr align="center">
+    <div align="center">
       <p>label :<br />  <input type="text" required name="libelle" /></p>
-    </tr>
-    <tr align="center">
+    </div>
+    <div align="center">
       <p>montant :<br />  <input type="number" required name="montant" /></p>
-    </tr>
-    <tr align="center">
+    </div>
+    <div align="center">
       <p>vers compte n°:<br /> <input type="number" name="id_compte_receveur" /></p>
-    </tr>
-    <tr align="center">
+    </div>
+    <div align="center">
       <p><input type="submit" value="Enregister mon opération"></p>
-    </tr>
-
+    </div>
 	</form>
+    <div><button><a href="operations.php">Annuler</a></button></div>
     </body>
 </html>
