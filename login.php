@@ -40,6 +40,5 @@ if (isset($comptes) AND (isset($password))) {
     <input type="submit" value="Se connecter"/>
     <button><a href="register.php">Se créer un compte</a></button>
 </form>
-<!--  <a href="http://localhost/espace_membre/register.php"><button>Se créer un compte</button></a>-->
 </body>
 </html>

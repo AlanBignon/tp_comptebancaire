@@ -11,7 +11,8 @@ $id = $_SESSION['id'];
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Opérations</title>
 </head>
 <body>
 <header>
