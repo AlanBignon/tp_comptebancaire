@@ -1,5 +1,4 @@
 <?php
-include 'function.php';
 session_start();
     $bdd = new PDO('mysql:host=localhost;dbname=compte_bancaire;charset=utf8', 'root', '');
 

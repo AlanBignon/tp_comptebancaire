@@ -16,21 +16,24 @@ session_start();
     //label:
     $libelle = $_POST["libelle"] ;
     //montant:
-    $montant = $_POST["montant"] ;
+    if ($_POST["montant"] > 1) {
+        $montant = $_POST["montant"] ;
+    }
 
     $SELECT_COUNT = "SELECT MAX(id_transaction) FROM transaction";
     $result = $bdd->query($SELECT_COUNT);
     $nombreTransaction = $result->fetch();
     $nombreTransaction[0] = $nombreTransaction[0] +1;
-    $transaction[] = new Transaction("$nombreTransaction[0]","$id_compte_envoyeur");
 
     //création de la requête SQL:
-
-    $bdd ->exec("INSERT  INTO transaction (libelle, montant, id_compte, id_compte_receveur)VALUES ('$libelle', '$montant', '$id_compte_envoyeur', '$id_compte_receveur') ") ;
-
+if ($_POST["montant"] >= 1) {
+    $bdd->exec("INSERT  INTO transaction (libelle, montant, id_compte, id_compte_receveur)VALUES ('$libelle', '$montant', '$id_compte_envoyeur', '$id_compte_receveur') ");
+    //$transaction = new Transaction("$nombreTransaction[0]","$id_compte_envoyeur","$id_compte_receveur","$montant");
+    //$transactions[] = $transaction;
+    //$_SESSION['transaction'] = $transactions;
+}
 
     $reponse = $bdd->query("SELECT * FROM `comptes` WHERE id_compte = '$id_compte_envoyeur' ");
-    var_dump($reponse);
     // On affiche chaque entrée une à une
     while ($donnees = $reponse->fetch()) {
 
@@ -41,7 +44,6 @@ session_start();
 
 
     $reponse = $bdd->query("SELECT * FROM `comptes` WHERE id_compte = '$id_compte_receveur' ");
-    var_dump($reponse);
     // On affiche chaque entrée une à une
     while ($donnees = $reponse->fetch()) {
         $solde_new = $donnees['solde_compte'] + $montant;
