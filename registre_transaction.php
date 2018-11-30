@@ -1,4 +1,13 @@
 <?php
+session_start();
+include 'function.php';
+
+
+if ($_SESSION['log'] == false) {
+    var_dump($_SESSION['log']);
+    redirection();
+}
+
 ?><!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -9,7 +18,6 @@
 		<h2>Enregistrement d'une opération</h2>
 
 		<form name="insertion" action="add_operation_hide.php" method="POST">
-
     <tr align="center">
       <p>label :<br />  <input type="text" required name="libelle" /></p>
     </tr>

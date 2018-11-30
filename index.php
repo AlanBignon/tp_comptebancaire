@@ -1,6 +1,12 @@
 <?php
+session_start();
+include 'function.php';
 
 
+if ($_SESSION['log'] == false) {
+    var_dump($_SESSION['log']);
+    redirection();
+}
 
 ?><!DOCTYPE html>
 <html lang="fr">
@@ -12,6 +18,10 @@
 <header>
     <h1>Mon Compte trop super</h1>
 </header>
-<main><a href="operations.php">Opérations</a> </main>
+<main>
+    <a href="operations.php">Opérations</a>
+    <a href="login.php">Déconnection</a>
+</main>
+
 </body>
 </html>

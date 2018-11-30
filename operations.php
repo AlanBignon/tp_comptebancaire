@@ -1,6 +1,13 @@
 <?php
-    
+include 'function.php';
+session_start();
     $bdd = new PDO('mysql:host=localhost;dbname=compte_bancaire;charset=utf8', 'root', '');
+
+if ($_SESSION['log'] == false) {
+    redirection();
+}
+$id = $_SESSION['id'];
+
 
 ?><!DOCTYPE html>
 <html lang="fr">
@@ -23,7 +30,7 @@
             </thead>
             <tbody>
                 
-                        <?php $stm = $bdd->query('SELECT * FROM transaction');
+                        <?php $stm = $bdd->query("SELECT * FROM transaction WHERE id_compte = '$id'");
                         //Permet de parcourir les lignes une par une
                             while ($user = $stm->fetch()) { ?>
                                 <tr>
