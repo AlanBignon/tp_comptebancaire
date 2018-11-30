@@ -8,11 +8,13 @@ session_start();
 
     //récupération des valeurs des champs:
 
+    if ($_SESSION['id'] != ($_POST['id_compte_receveur']))  {
+        //compte envoyeur:
+        $id_compte_envoyeur = $_SESSION['id'];
+        //compte receveur :
+        $id_compte_receveur = $_POST["id_compte_receveur"] ;
+    }
 
-    //compte envoyeur:
-    $id_compte_envoyeur = $_SESSION['id'];
-    //compte receveur :
-    $id_compte_receveur = $_POST["id_compte_receveur"] ;
     //label:
     $libelle = $_POST["libelle"] ;
     //montant:
@@ -32,23 +34,25 @@ if ($_POST["montant"] >= 1) {
     //$transactions[] = $transaction;
     //$_SESSION['transaction'] = $transactions;
 }
-
+if ($_SESSION['id'] != ($_POST['id_compte_receveur'])) {
     $reponse = $bdd->query("SELECT * FROM `comptes` WHERE id_compte = '$id_compte_envoyeur' ");
     // On affiche chaque entrée une à une
     while ($donnees = $reponse->fetch()) {
 
         $solde_new = $donnees['solde_compte'] - $montant;
-        $bdd ->exec( "UPDATE comptes SET solde_compte = $solde_new WHERE id_compte = '$id_compte_envoyeur' ");
+        $bdd->exec("UPDATE comptes SET solde_compte = $solde_new WHERE id_compte = '$id_compte_envoyeur' ");
         $reponse->closeCursor();
     }
+}
 
-
+if ($_SESSION['id'] != ($_POST['id_compte_receveur'])) {
     $reponse = $bdd->query("SELECT * FROM `comptes` WHERE id_compte = '$id_compte_receveur' ");
     // On affiche chaque entrée une à une
     while ($donnees = $reponse->fetch()) {
         $solde_new = $donnees['solde_compte'] + $montant;
-        $bdd ->exec( "UPDATE comptes SET solde_compte = $solde_new WHERE id_compte = '$id_compte_receveur' ");
+        $bdd->exec("UPDATE comptes SET solde_compte = $solde_new WHERE id_compte = '$id_compte_receveur' ");
         $reponse->closeCursor();
     }
+}
 
     header('location: http://localhost/tp_comptebancaire/operations.php');
